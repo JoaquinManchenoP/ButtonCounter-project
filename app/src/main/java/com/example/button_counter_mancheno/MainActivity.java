@@ -118,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         String counterValue = display.getText().toString();
-        outState.putString("counterNumber", counterValue);
+        outState.putString("display", counterValue);
 
 
 
@@ -129,10 +129,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
 
-        TextView myTextView = findViewById(R.id.counterNumber);
-        String counterValue = savedInstanceState.getString("counterNumber");
 
-        myTextView.setText(counterValue);
+        String counterValue = savedInstanceState.getString("display");
+
+        display.setText(counterValue);
 
 
 
