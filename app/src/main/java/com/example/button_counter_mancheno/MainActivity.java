@@ -14,6 +14,8 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
     String tag = "message";
+    TextView display;
+
 
 
 
@@ -31,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
 
         final Button resetButton;
         resetButton = findViewById(R.id.reset);
+
+        display = findViewById(R.id.counterNumber);
 
 
 
@@ -50,11 +54,11 @@ public class MainActivity extends AppCompatActivity {
             }
 
             private void incrementCounter(){
-                TextView myTextView = findViewById(R.id.counterNumber);
-                int screenValue = Integer.valueOf(myTextView.getText().toString());
+
+                int screenValue = Integer.valueOf(display.getText().toString());
                 screenValue++;
 
-                myTextView.setText(String.valueOf(screenValue));
+                display.setText(String.valueOf(screenValue));
 
 
             }
@@ -70,11 +74,11 @@ public class MainActivity extends AppCompatActivity {
             }
 
             private void decrementCounter(){
-                TextView myTextView = findViewById(R.id.counterNumber);
-                int screenValue = Integer.valueOf(myTextView.getText().toString());
+
+                int screenValue = Integer.valueOf(display.getText().toString());
                 screenValue--;
 
-                myTextView.setText(String.valueOf(screenValue));
+                display.setText(String.valueOf(screenValue));
 
 
             }
@@ -91,11 +95,11 @@ public class MainActivity extends AppCompatActivity {
             }
 
             private void resetCounter(){
-                TextView myTextView = findViewById(R.id.counterNumber);
-                int screenValue = Integer.valueOf(myTextView.getText().toString());
+
+                int screenValue = Integer.valueOf(display.getText().toString());
                 screenValue = 0;
 
-                myTextView.setText(String.valueOf(screenValue));
+                display.setText(String.valueOf(screenValue));
 
 
             }
@@ -111,9 +115,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onSaveInstanceState(@NonNull Bundle outState, @NonNull PersistableBundle outPersistentState) {
         super.onSaveInstanceState(outState, outPersistentState);
-        TextView myTextView = findViewById(R.id.counterNumber);
 
-        String counterValue = myTextView.getText().toString();
+
+        String counterValue = display.getText().toString();
         outState.putString("counterNumber", counterValue);
 
 
